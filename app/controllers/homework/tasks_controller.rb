@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class Homework::TasksController < ApplicationController
   def index
     @tasks = Task.all
   end
