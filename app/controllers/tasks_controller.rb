@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
+  def preview
+    @task = Task.find(params[:id])
+  end
+
   def create
     @task = Task.new(tasks_params)
     if @task.save

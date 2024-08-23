@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "tasks#index"
 
-  resources :tasks, only: [:index, :new, :create]
+  resources :tasks, only: [:index, :new, :create] do
+      get "preview", on: :member
+  end
 end
