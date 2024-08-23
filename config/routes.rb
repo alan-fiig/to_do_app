@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   root "tasks#index"
 
   resources :tasks, only: [:index, :new, :create] do
-      get "preview", on: :member
+    get "preview", on: :member
   end
+
+  namespace :admin do
+    resources :users, only: [:index, :new, :create]
+  end
+
 end
