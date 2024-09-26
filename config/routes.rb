@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "homework/tasks#index"
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   scope module: :homework, path: :hm do
     resources :tasks, only: [:index, :new, :create] do
       get "preview", on: :member
